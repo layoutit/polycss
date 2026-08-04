@@ -1,5 +1,5 @@
 import { copyFileSync } from "node:fs";
-import { dirname, relative, resolve } from "node:path";
+import { dirname, relative, resolve, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..", "..");
@@ -11,11 +11,12 @@ const targets = [
   "packages/vue/README.md",
 ];
 const packageSpecificTargets = [
+  "packages/domformat/README.md",
   "packages/fonts/README.md",
   "packages/morph/README.md",
 ];
 
-const invokedFrom = relative(repoRoot, process.cwd());
+const invokedFrom = relative(repoRoot, process.cwd()).split(sep).join("/");
 const invokedFromPackageReadme = invokedFrom.startsWith("packages/")
   ? `${invokedFrom}/README.md`
   : undefined;

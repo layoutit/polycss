@@ -1,0 +1,155 @@
+{
+  "version": 0,
+  "mount": {
+    "behavior": "replace-children",
+    "attributes": [
+      ["data-domformat-root", "synthetic-polycss"]
+    ],
+    "styles": {
+      "backgroundColor": "#000",
+      "backgroundPosition": "center",
+      "backgroundRepeat": "repeat",
+      "backgroundSize": "auto",
+      "position": "relative"
+    },
+    "resourceStyles": {
+      "backgroundImage": {
+        "resource": "checker",
+        "syntax": "overlay-url",
+        "overlayOpacity": 0.25
+      }
+    }
+  },
+  "nodes": [
+    {
+      "index": 0,
+      "id": "synthetic-polycss/camera",
+      "parent": -1,
+      "sibling": 0,
+      "namespace": "http://www.w3.org/1999/xhtml",
+      "name": "div",
+      "classes": ["camera"],
+      "attributes": {},
+      "styles": {
+        "height": "240px",
+        "perspective": "400px",
+        "perspectiveOrigin": "160px 120px",
+        "position": "relative",
+        "width": "320px"
+      },
+      "resourceAttributes": {},
+      "resourceStyles": {}
+    },
+    {
+      "index": 1,
+      "id": "synthetic-polycss/model",
+      "parent": 0,
+      "sibling": 0,
+      "namespace": "http://www.w3.org/1999/xhtml",
+      "name": "div",
+      "classes": ["scene"],
+      "attributes": {},
+      "styles": {
+        "transform": "translate3d(0px, 0px, 0px)",
+        "transformStyle": "preserve-3d"
+      },
+      "resourceAttributes": {},
+      "resourceStyles": {}
+    },
+    {
+      "index": 2,
+      "id": "synthetic-polycss/leaf",
+      "parent": 1,
+      "sibling": 0,
+      "namespace": "http://www.w3.org/1999/xhtml",
+      "name": "u",
+      "classes": ["leaf"],
+      "attributes": {"aria-hidden": "true"},
+      "styles": {
+        "backgroundPositionY": "0",
+        "height": "16px",
+        "transform": "matrix3d(1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1)",
+        "visibility": "visible",
+        "width": "16px"
+      },
+      "resourceAttributes": {},
+      "resourceStyles": {
+        "backgroundImage": {"resource": "checker", "syntax": "url"}
+      }
+    },
+    {
+      "index": 3,
+      "id": "synthetic-polycss/effects",
+      "parent": -1,
+      "sibling": 1,
+      "namespace": "http://www.w3.org/1999/xhtml",
+      "name": "div",
+      "classes": ["effects"],
+      "attributes": {},
+      "styles": {},
+      "resourceAttributes": {},
+      "resourceStyles": {}
+    },
+    {
+      "index": 4,
+      "id": "synthetic-polycss/effects/particle:0",
+      "parent": 3,
+      "sibling": 0,
+      "namespace": "http://www.w3.org/1999/xhtml",
+      "name": "s",
+      "classes": ["leaf"],
+      "attributes": {"aria-hidden": "true"},
+      "styles": {
+        "backgroundPosition": "0px 0px",
+        "height": "2px",
+        "opacity": "0",
+        "transform": "translate3d(0px, 0px, 0px)",
+        "visibility": "hidden",
+        "width": "2px"
+      },
+      "resourceAttributes": {},
+      "resourceStyles": {
+        "backgroundImage": {"resource": "checker", "syntax": "url"}
+      }
+    },
+    {
+      "index": 5,
+      "id": "synthetic-polycss/cursor",
+      "parent": -1,
+      "sibling": 2,
+      "namespace": "http://www.w3.org/1999/xhtml",
+      "name": "div",
+      "classes": ["cursor"],
+      "attributes": {},
+      "styles": {},
+      "resourceAttributes": {},
+      "resourceStyles": {}
+    },
+    {
+      "index": 6,
+      "id": "synthetic-polycss/cursor:open",
+      "parent": 5,
+      "sibling": 0,
+      "namespace": "http://www.w3.org/1999/xhtml",
+      "name": "span",
+      "classes": [],
+      "attributes": {"aria-hidden": "true"},
+      "styles": {"visibility": "hidden"},
+      "resourceAttributes": {},
+      "resourceStyles": {}
+    },
+    {
+      "index": 7,
+      "id": "synthetic-polycss/cursor:closed",
+      "parent": 5,
+      "sibling": 1,
+      "namespace": "http://www.w3.org/1999/xhtml",
+      "name": "span",
+      "classes": [],
+      "attributes": {"aria-hidden": "true"},
+      "styles": {"visibility": "hidden"},
+      "resourceAttributes": {},
+      "resourceStyles": {}
+    }
+  ]
+}

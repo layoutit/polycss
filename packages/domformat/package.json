@@ -1,0 +1,40 @@
+{
+  "name": "@layoutit/polycss-domformat",
+  "version": "0.0.0",
+  "description": "Private deterministic retained-DOM JSON format for PolyCSS prepared models.",
+  "type": "module",
+  "private": true,
+  "files": [
+    "bin/",
+    "src/",
+    "LICENSE",
+    "README.md"
+  ],
+  "bin": {
+    "domformat": "./bin/domformat.js"
+  },
+  "exports": {
+    ".": "./src/index.js",
+    "./browser": "./src/browser.js"
+  },
+  "scripts": {
+    "build": "npm run check",
+    "test": "npm run check && node --test test/*.test.js",
+    "test:browser": "node scripts/check-browser.js",
+    "check": "node --check bin/domformat.js && node --check src/*.js && node --check src/state/*.js && node --check conformance/viewer/*.js && node --check scripts/*.js && node --check viewer/*.js",
+    "check:nversion": "node --check conformance/nversion/*.js && node --check test/nversion-viewer.js",
+    "conformance": "python3 -B conformance/run_corpus.py && python3 -B conformance/check_canonical.py && python3 -B conformance/check_css.py",
+    "conformance:update": "node scripts/update-conformance-fixture.js",
+    "pack:check": "node scripts/check-release-package.js",
+    "test:release": "npm run check:nversion && npm test && npm run conformance && npm run test:browser && npm run pack:check"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LayoutitStudio/polycss.git",
+    "directory": "packages/domformat"
+  },
+  "license": "MIT"
+}

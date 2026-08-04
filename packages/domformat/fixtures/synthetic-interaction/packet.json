@@ -1,0 +1,123 @@
+{
+  "version": 0,
+  "arithmetic": "ieee754-f32-per-operation",
+  "input": {
+    "sourceWidth": 320,
+    "sourceHeight": 240,
+    "cursorBounds": [16, 272, 16, 208],
+    "cursorInitial": [160, 120],
+    "pointerQuantization": "trunc-toward-zero-then-clamp",
+    "stickRange": [-128, 127],
+    "stickDeadzone": 6,
+    "stickScale": 0.1,
+    "grabButton": 32768,
+    "holdButton": 16,
+    "hitRadius": 20,
+    "cursorVisibleTicks": 300,
+    "mirrorX": 320
+  },
+  "animator": {
+    "initialState": 7,
+    "initialFrame": 3,
+    "introState": 0,
+    "dozeState": 2,
+    "sleepState": 3,
+    "wakeState": 4,
+    "convergeState": 5,
+    "exitEyeState": 6,
+    "eyeState": 7,
+    "dozeLoopCount": 2,
+    "dozeLoopStartFrame": 4,
+    "dozeLoopEndFrame": 6,
+    "sleepEndFrame": 8,
+    "wakeStartFrame": 1,
+    "eyeFrame": 3,
+    "convergeStillTicks": 2,
+    "eyeStillTicks": 4
+  },
+  "source": {
+    "cameraViewMatrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1],
+    "cameraWorldPosition": [0, 0, 0],
+    "inverseCameraMatrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1],
+    "projection": { "scale": 256, "origin": [160, 120] },
+    "displacementMagnitude": 1,
+    "eyeGain": 2,
+    "eyeMaximumOffset": 30,
+    "spring": {
+      "cursorResistance": 0.20000000298023224,
+      "grabbedFlag": 8192,
+      "pickedResistance": -0.25,
+      "releaseAcceleration": 0.5,
+      "snapOffsetL1": 1,
+      "snapVelocityL1": 1,
+      "velocityDecay": 0.800000011920929
+    }
+  },
+  "triangle": {
+    "basisEpsilon": 1e-9,
+    "primitive": "corner-bevel",
+    "fallbackAmount": 0,
+    "sharedEdgeAmount": 0
+  },
+  "objects": {
+    "rotationMatrices": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]
+  },
+  "shapes": {
+    "baseMatrices": [
+      1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1,
+      1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1
+    ]
+  },
+  "leaves": [
+    { "basis": [0, 1, 2], "canonicalSize": 32, "matrixDecimals": 3, "seamEdgeMask": 0, "width": 32, "height": 32 },
+    { "basis": [0, 1, 2], "canonicalSize": 32, "matrixDecimals": 3, "seamEdgeMask": 0, "width": 32, "height": 32 }
+  ],
+  "controls": [
+    {
+      "id": "grab-triangle",
+      "role": "triangle",
+      "mode": "grab",
+      "sourceOrder": 0,
+      "sourcePosition": [0, 0, 0],
+      "screenPosition": [160, 120],
+      "cameraDistance": 100,
+      "attachmentObjectIndices": [0],
+      "closure": {
+        "shapeIndices": [0],
+        "vertexRows": [0, 0, 0, 1, 0, 1, 1, 1, 0, 2, 2, 1],
+        "vertexPositions": [0, 0, 0, 0, 0, 32, 32, 0, 0],
+        "weightActiveFlags": [1, 1, 1],
+        "weightScalars": [1, 1, 1],
+        "weightLinearContributions": [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        "weightBaseTranslations": [0, 0, 0, 0, 0, 0, 0, 0, 0],
+        "leafIndices": [0],
+        "leafRows": [0, 0, 1, 2],
+        "safeVisibleLeafIndices": [0],
+        "rigidRootInverseMatrix": []
+      }
+    },
+    {
+      "id": "eye-follow-triangle",
+      "role": "eye",
+      "mode": "eye-follow",
+      "sourceOrder": 1,
+      "sourcePosition": [0, 0, -100],
+      "screenPosition": [160, 120],
+      "cameraDistance": 100,
+      "attachmentObjectIndices": [0],
+      "closure": {
+        "shapeIndices": [1],
+        "vertexRows": [1, 0, 0, 0, 1, 1, 0, 0, 1, 2, 0, 0],
+        "vertexPositions": [0, 0, 0, 0, 0, 32, 32, 0, 0],
+        "weightActiveFlags": [],
+        "weightScalars": [],
+        "weightLinearContributions": [],
+        "weightBaseTranslations": [],
+        "leafIndices": [1],
+        "leafRows": [1, 0, 1, 2],
+        "safeVisibleLeafIndices": [],
+        "rigidRootInverseMatrix": [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]
+      }
+    }
+  ]
+}

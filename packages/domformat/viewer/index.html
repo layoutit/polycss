@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" href="data:,">
+  <title>domformat@0 viewer</title>
+  <style>
+    html, body, #viewer { width: 100%; height: 100%; margin: 0; }
+    html, body { overflow: hidden; background: #000; }
+    #viewer { position: fixed; inset: 0; overflow: hidden; }
+    #status { position: fixed; z-index: 2147483647; left: 8px; bottom: 8px; color: #fff; font: 11px/1.4 ui-monospace, monospace; }
+  </style>
+</head>
+<body>
+  <main id="viewer" aria-label="DOM model"></main>
+  <output id="status">loading</output>
+  <script type="module" src="./viewer.js"></script>
+</body>
+</html>

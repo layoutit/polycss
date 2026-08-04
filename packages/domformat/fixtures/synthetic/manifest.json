@@ -1,0 +1,41 @@
+{
+  "meta": {
+    "title": "Synthetic retained triangle",
+    "capabilities": [
+      "css-semantic-closure",
+      "deterministic-json",
+      "explicit-retained-tree",
+      "logical-assets"
+    ],
+    "optionalCapabilities": [
+      "future-decoration"
+    ],
+    "initialExperience": "animation",
+    "conformance": {
+      "executable": [
+        "retained-tree"
+      ],
+      "declaredOnly": []
+    }
+  },
+  "tree": "tree.json",
+  "cssBinding": "css-binding.json",
+  "state": "state.json",
+  "bindings": "bindings.json",
+  "resources": [
+    {
+      "id": "checker",
+      "kind": "image",
+      "mediaType": "image/png",
+      "path": "assets/checker.png",
+      "source": "checker.png"
+    },
+    {
+      "id": "model-css",
+      "kind": "stylesheet",
+      "mediaType": "text/css;charset=utf-8",
+      "path": "model.css",
+      "source": "model.css"
+    }
+  ]
+}

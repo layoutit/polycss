@@ -1,0 +1,16 @@
+{
+  "version": 0,
+  "stylesheets": [
+    {
+      "id": "model-css",
+      "resource": "model-css",
+      "scope": "[data-domformat-root=\"synthetic\"]",
+      "assetTokens": [
+        {
+          "token": "dom-asset:checker",
+          "resource": "checker"
+        }
+      ]
+    }
+  ]
+}

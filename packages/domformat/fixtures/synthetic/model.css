@@ -1,0 +1,12 @@
+[data-domformat-root="synthetic"] .scene,
+[data-domformat-root="synthetic"] .shape {
+  position: absolute;
+  transform-style: preserve-3d;
+}
+
+[data-domformat-root="synthetic"] .leaf {
+  position: absolute;
+  display: block;
+  background-image: url("dom-asset:checker");
+  image-rendering: pixelated;
+}

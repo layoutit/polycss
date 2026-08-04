@@ -1,0 +1,12 @@
+[data-domformat-gallery="model"] .gallery-camera{position:relative;display:block;width:100%;height:100%}
+[data-domformat-gallery="model"] .gallery-scene,[data-domformat-gallery="model"] .gallery-scene *{box-sizing:border-box}
+[data-domformat-gallery="model"] .gallery-scene{position:absolute;top:50%;left:50%;width:0;height:0;transform-style:preserve-3d;will-change:transform}
+[data-domformat-gallery="model"] .gallery-mesh,[data-domformat-gallery="model"] .gallery-bucket{position:absolute;transform-style:preserve-3d;transform-origin:0 0 0}
+[data-domformat-gallery="model"] .gallery-leaf{position:absolute;display:block;transform-origin:0 0;transform-style:preserve-3d;margin:0;padding:0;font:inherit;font-weight:normal;font-style:normal;line-height:0;text-decoration:none;backface-visibility:hidden;background-repeat:no-repeat}
+[data-domformat-gallery="model"] b.gallery-leaf{background:currentColor;width:64px;height:64px}
+[data-domformat-gallery="model"] i.gallery-leaf{width:16px;height:16px;border-color:currentColor}
+[data-domformat-gallery="model"] u.gallery-leaf{width:32px;height:32px;background:transparent;box-sizing:content-box;border:0 solid transparent;border-color:transparent transparent currentColor transparent;background-color:currentColor;border-top-left-radius:50% 100%;border-top-right-radius:50% 100%;corner-top-left-shape:bevel;corner-top-right-shape:bevel}
+[data-domformat-gallery="model"] u.gallery-corner-solid{width:16px;height:16px;box-sizing:border-box;border:0;background:currentColor;border-top-left-radius:0;border-top-right-radius:0;border-bottom-right-radius:0;border-bottom-left-radius:0;corner-top-left-shape:initial;corner-top-right-shape:initial;corner-bottom-right-shape:initial;corner-bottom-left-shape:initial}
+[data-domformat-gallery="model"] .gallery-voxel-face{position:absolute;display:block;top:0;left:0;width:0;height:0;transform-style:preserve-3d;transform-origin:0 0;margin:0;padding:0;font:inherit;line-height:0;pointer-events:none}
+[data-domformat-gallery="model"] .gallery-voxel-face>b.gallery-leaf{top:0;left:0;width:1px;height:1px;backface-visibility:visible;pointer-events:none}
+[data-domformat-gallery="model"] .gallery-pixelated{image-rendering:pixelated}

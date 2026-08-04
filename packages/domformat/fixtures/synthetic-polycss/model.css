@@ -1,0 +1,13 @@
+[data-domformat-root="synthetic-polycss"] .scene,
+[data-domformat-root="synthetic-polycss"] .effects,
+[data-domformat-root="synthetic-polycss"] .cursor {
+  position: absolute;
+  transform-style: preserve-3d;
+}
+
+[data-domformat-root="synthetic-polycss"] .leaf {
+  position: absolute;
+  display: block;
+  background-image: url("dom-asset:checker");
+  image-rendering: pixelated;
+}

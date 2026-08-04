@@ -1,0 +1,54 @@
+{
+  "meta": {
+    "title": "Synthetic executable PolyCSS scene",
+    "capabilities": [
+      "css-semantic-closure",
+      "deterministic-json",
+      "explicit-retained-tree",
+      "logical-assets",
+      "prepared-particle-effects",
+      "prepared-playback",
+      "prepared-surface-lighting"
+    ],
+    "optionalCapabilities": [
+      "future-decoration"
+    ],
+    "initialExperience": "animation",
+    "conformance": {
+      "executable": [
+        "retained-tree",
+        "particle-effects",
+        "playback",
+        "presentation",
+        "surface-lighting"
+      ],
+      "declaredOnly": []
+    },
+    "counts": {
+      "nodes": 8,
+      "shapes": 0,
+      "leaves": 1,
+      "sourceFrames": 1
+    }
+  },
+  "tree": "tree.json",
+  "cssBinding": "css-binding.json",
+  "state": "state.json",
+  "bindings": "bindings.json",
+  "resources": [
+    {
+      "id": "checker",
+      "kind": "image",
+      "mediaType": "image/png",
+      "path": "assets/checker.png",
+      "source": "checker.png"
+    },
+    {
+      "id": "model-css",
+      "kind": "stylesheet",
+      "mediaType": "text/css;charset=utf-8",
+      "path": "model.css",
+      "source": "model.css"
+    }
+  ]
+}

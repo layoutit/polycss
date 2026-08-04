@@ -1,0 +1,60 @@
+{
+  "version": 0,
+  "scope": "[data-domformat-root=\"synthetic\"]",
+  "cases": [
+    {
+      "id": "valid-logical-url",
+      "css": "[data-domformat-root=\"synthetic\"] .leaf{background-image:url(\"dom-asset:checker\")}\n",
+      "tokens": [{ "token": "dom-asset:checker", "resource": "checker" }],
+      "expect": "valid"
+    },
+    {
+      "id": "remote-url",
+      "css": "[data-domformat-root=\"synthetic\"]{background:url(\"https://example.test/a\")}\n",
+      "tokens": [],
+      "expect": "UNSAFE_CSS"
+    },
+    {
+      "id": "indirect-image-set",
+      "css": "[data-domformat-root=\"synthetic\"]{background:image-set(\"https://example.test/a\" 1x)}\n",
+      "tokens": [],
+      "expect": "UNSAFE_CSS_FUNCTION"
+    },
+    {
+      "id": "escaped-function-name",
+      "css": "[data-domformat-root=\"synthetic\"]{background:u\\72l(\"https://example.test/a\")}\n",
+      "tokens": [],
+      "expect": "UNSAFE_CSS_ESCAPE"
+    },
+    {
+      "id": "scope-sibling-exit",
+      "css": "[data-domformat-root=\"synthetic\"] ~ *{color:red}\n",
+      "tokens": [],
+      "expect": "CSS_SCOPE_ESCAPE"
+    },
+    {
+      "id": "comment-token-obfuscation",
+      "css": "[data-domformat-root=\"synthetic\"]{background:u/**/rl(\"https://example.test/a\")}\n",
+      "tokens": [],
+      "expect": "UNSAFE_CSS_COMMENT"
+    },
+    {
+      "id": "nested-rule",
+      "css": "[data-domformat-root=\"synthetic\"]{.leaf{color:red}}\n",
+      "tokens": [],
+      "expect": "UNSAFE_CSS_NESTING"
+    },
+    {
+      "id": "unsupported-property",
+      "css": "[data-domformat-root=\"synthetic\"]{animation:spin 1s infinite}\n",
+      "tokens": [],
+      "expect": "UNSAFE_CSS_PROPERTY"
+    },
+    {
+      "id": "undeclared-logical-url",
+      "css": "[data-domformat-root=\"synthetic\"]{background:url(dom-asset:missing)}\n",
+      "tokens": [],
+      "expect": "UNBOUND_CSS_URL"
+    }
+  ]
+}

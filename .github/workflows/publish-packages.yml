@@ -1,8 +1,10 @@
 name: Publish packages
 
-# Manual-only. Bumps every package under `packages/*` in lockstep (using
-# .github/scripts/bump-versions.mjs), builds them, publishes to npm, then commits
-# the version change and pushes a `v<X.Y.Z>` tag back to main.
+# Manual-only. Bumps every publishable package under `packages/*` in lockstep
+# (using .github/scripts/bump-versions.mjs), builds the workspace, publishes the
+# public packages to npm, then commits the version change and pushes a
+# `v<X.Y.Z>` tag back to main. Packages marked `private` are never versioned or
+# published by this workflow.
 #
 # Trigger from the Actions tab ("Run workflow") or:
 #   gh workflow run publish-packages.yml -f bump=patch
@@ -64,7 +66,7 @@ jobs:
         run: pnpm build:packages
 
       - name: Publish to npm
-        run: pnpm --filter "./packages/*" -r publish --access public --no-git-checks
+        run: pnpm --filter "./packages/*" --filter "!@layoutit/polycss-domformat" -r publish --access public --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 

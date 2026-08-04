@@ -1,0 +1,59 @@
+{
+  "version": 0,
+  "inputs": [
+    {"id": "interaction.grab-active", "type": "boolean", "default": false},
+    {"id": "interaction.grab-x", "type": "float", "default": 0},
+    {"id": "interaction.grab-y", "type": "float", "default": 0},
+    {"id": "interaction.grab-z", "type": "float", "default": 0},
+    {"id": "time.source-frame", "type": "uint"},
+    {"id": "time.tick", "type": "uint"},
+    {"id": "viewport.height", "type": "float"},
+    {"id": "viewport.width", "type": "float"}
+  ],
+  "channels": [
+    {
+      "id": "effects",
+      "state": "effects",
+      "interpreter": "polycss-effects@0",
+      "status": "executable",
+      "inputs": ["interaction.grab-active", "interaction.grab-x", "interaction.grab-y", "interaction.grab-z", "time.source-frame"],
+      "targets": {"stars": [], "emitters": [["synthetic-polycss/effects/particle:0"]]},
+      "sinks": ["style.backgroundPosition", "style.opacity", "style.transform", "style.visibility"],
+      "parameters": {"frameCount": 1}
+    },
+    {
+      "id": "playback",
+      "state": "playback",
+      "interpreter": "polycss-playback@0",
+      "status": "executable",
+      "inputs": ["time.tick"],
+      "targets": {"model": "synthetic-polycss/model", "shapes": [], "leaves": ["synthetic-polycss/leaf"]},
+      "sinks": ["style.transform", "style.visibility"],
+      "parameters": {"baseSceneTransform": "translate3d(0px, 0px, 0px)", "frameCount": 1, "tickRateHz": 30}
+    },
+    {
+      "id": "presentation",
+      "state": "presentation",
+      "interpreter": "static-presentation@0",
+      "status": "executable",
+      "inputs": ["viewport.height", "viewport.width"],
+      "targets": {
+        "host": "$host",
+        "camera": "synthetic-polycss/camera",
+        "cursorLayer": "synthetic-polycss/cursor",
+        "cursorStates": {"open": "synthetic-polycss/cursor:open", "closed": "synthetic-polycss/cursor:closed"}
+      },
+      "sinks": ["host.style.backgroundColor", "host.style.backgroundImage", "host.style.backgroundPosition", "host.style.backgroundRepeat", "host.style.backgroundSize", "style.height", "style.left", "style.top", "style.transform", "style.visibility", "style.width"],
+      "parameters": {"fitHeight": 240, "fitWidth": 320, "sourceHeight": 240, "sourceWidth": 320}
+    },
+    {
+      "id": "surface",
+      "state": "surface",
+      "interpreter": "polycss-surface@0",
+      "status": "executable",
+      "inputs": ["time.source-frame"],
+      "targets": {"leaves": ["synthetic-polycss/leaf"]},
+      "sinks": ["style.backgroundPositionY", "style.visibility"]
+    }
+  ]
+}

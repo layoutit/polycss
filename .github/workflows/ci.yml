@@ -40,6 +40,9 @@ jobs:
       - name: Enforce Morph coverage
         run: pnpm --filter @layoutit/polycss-morph test:coverage
 
+      - name: Certify domformat package
+        run: pnpm --filter @layoutit/polycss-domformat pack:check
+
       - name: Build packages (DTS + JS)
         run: pnpm build:packages
 

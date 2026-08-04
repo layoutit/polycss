@@ -1,0 +1,20 @@
+{
+  "version": 0,
+  "values": [
+    { "id": "negative-zero", "value": 0, "negativeZero": true, "bits": "80000000" },
+    { "id": "stick-scale", "value": 0.1, "bits": "3dcccccd" },
+    { "id": "cursor-resistance", "value": 0.20000000298023224, "bits": "3e4ccccd" },
+    { "id": "velocity-decay", "value": 0.800000011920929, "bits": "3f4ccccd" },
+    { "id": "picked-resistance", "value": -0.25, "bits": "be800000" },
+    { "id": "basis-epsilon", "value": 1e-9, "bits": "3089705f" },
+    { "id": "integer-rounding", "value": 16777217, "bits": "4b800000" },
+    { "id": "large-coordinate", "value": 333333333.3333333, "bits": "4d9ef21b" }
+  ],
+  "operations": [
+    { "id": "add-rounded-operands", "op": "add", "left": 0.1, "right": 0.2, "bits": "3e99999a" },
+    { "id": "multiply-rounded-operands", "op": "multiply", "left": 0.20000000298023224, "right": 0.800000011920929, "bits": "3e23d70b" },
+    { "id": "release-step", "op": "multiply", "left": -10.5, "right": 0.5, "bits": "c0a80000" },
+    { "id": "gravity-step", "op": "add", "left": 4, "right": -1, "bits": "40400000" },
+    { "id": "length-square-root", "op": "sqrt", "value": 2, "bits": "3fb504f3" }
+  ]
+}

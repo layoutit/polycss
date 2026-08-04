@@ -7,7 +7,11 @@
   "license": "MIT",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && node scripts/generate-llms-txt.mjs",
+    "build": "node scripts/verify-gallery-domformat.mjs && astro build && node scripts/generate-llms-txt.mjs",
+    "generate:domformat": "node scripts/generate-gallery-domformat.mjs",
+    "prove:domformat": "node scripts/prove-gallery-domformat.mjs",
+    "verify:domformat": "node scripts/verify-gallery-domformat.mjs",
+    "verify:domformat:fresh": "node scripts/verify-gallery-domformat.mjs --fresh",
     "preview": "astro preview"
   },
   "dependencies": {
@@ -15,6 +19,7 @@
     "@astrojs/sitemap": "^3.7.1",
     "@astrojs/starlight": "^0.38.2",
     "@layoutit/polycss": "workspace:^",
+    "@layoutit/polycss-domformat": "workspace:^",
     "@layoutit/polycss-fonts": "workspace:^",
     "@layoutit/polycss-morph": "workspace:^",
     "@layoutit/polycss-react": "workspace:^",

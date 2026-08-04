@@ -1,0 +1,28 @@
+{
+  "version": 0,
+  "cases": [
+    { "id": "zero", "source": "0", "canonical": "0" },
+    { "id": "negative-zero", "source": "-0", "canonical": "0" },
+    { "id": "lower-exponent", "source": "1e-7", "canonical": "1e-7" },
+    { "id": "lower-fixed-threshold", "source": "1e-6", "canonical": "0.000001" },
+    { "id": "upper-fixed", "source": "1e20", "canonical": "100000000000000000000" },
+    { "id": "upper-exponent-threshold", "source": "1e21", "canonical": "1e+21" },
+    { "id": "negative-upper-exponent", "source": "-1e21", "canonical": "-1e+21" },
+    { "id": "shortest-roundtrip", "source": "333333333.33333329", "canonical": "333333333.3333333" },
+    { "id": "redundant-fraction", "source": "4.50", "canonical": "4.5" },
+    { "id": "expanded-exponent", "source": "2e-3", "canonical": "0.002" },
+    { "id": "positive-exponent-sign", "source": "1e30", "canonical": "1e+30" },
+    { "id": "small-exponent", "source": "0.000000000000000000000000001", "canonical": "1e-27" },
+    { "id": "minimum-subnormal", "source": "5e-324", "canonical": "5e-324" },
+    { "id": "negative-minimum-subnormal", "source": "-5e-324", "canonical": "-5e-324" },
+    { "id": "maximum-binary64", "source": "1.7976931348623157e308", "canonical": "1.7976931348623157e+308" },
+    { "id": "maximum-safe-integer", "source": "9007199254740991", "canonical": "9007199254740991" },
+    { "id": "binary64-integer", "source": "9007199254740992", "canonical": "9007199254740992" },
+    { "id": "large-roundtrip-integer", "source": "1000000000000000100", "canonical": "1000000000000000100" },
+    { "id": "integer-looking-key-order", "source": "{\"2\":\"two\",\"10\":\"ten\",\"a\":0}", "canonical": "{\"10\":\"ten\",\"2\":\"two\",\"a\":0}" },
+    { "id": "nfc-key-and-value", "source": "{\"é\":\"Å\"}", "canonical": "{\"é\":\"Å\"}" },
+    { "id": "utf16-key-order", "source": "{\"\":1,\"😀\":2}", "canonical": "{\"😀\":2,\"\":1}" },
+    { "id": "primitive-and-escape-array", "source": "[true,false,null,\"\\b\\t\\n\\f\\r\\\"\\\\\",-0]", "canonical": "[true,false,null,\"\\b\\t\\n\\f\\r\\\"\\\\\",0]" },
+    { "id": "prototype-key-is-data", "source": "{\"__proto__\":null}", "canonical": "{\"__proto__\":null}" }
+  ]
+}

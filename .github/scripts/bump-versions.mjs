@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Bump the version of every package under `packages/*` in lockstep.
+ * Bump every publishable package under `packages/*` in lockstep.
  *
  * Usage:
  *   node .github/scripts/bump-versions.mjs <patch|minor|major>
@@ -28,7 +28,13 @@ const packages = readdirSync(packagesRoot, { withFileTypes: true })
   .filter((entry) => entry.isDirectory())
   .map((entry) => resolve(packagesRoot, entry.name, "package.json"))
   .filter(existsSync)
+  .filter((file) => JSON.parse(readFileSync(file, "utf8")).private !== true)
   .sort();
+
+if (packages.length === 0) {
+  console.error("could not find any publishable packages");
+  process.exit(1);
+}
 
 const bump = process.argv[2];
 if (!["patch", "minor", "major"].includes(bump)) {

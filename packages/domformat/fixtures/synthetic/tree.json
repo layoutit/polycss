@@ -1,0 +1,78 @@
+{
+  "version": 0,
+  "mount": {
+    "behavior": "replace-children",
+    "attributes": [
+      [
+        "data-domformat-root",
+        "synthetic"
+      ]
+    ],
+    "styles": {
+      "position": "relative"
+    },
+    "resourceStyles": {}
+  },
+  "nodes": [
+    {
+      "index": 0,
+      "id": "synthetic/scene",
+      "parent": -1,
+      "sibling": 0,
+      "namespace": "http://www.w3.org/1999/xhtml",
+      "name": "div",
+      "classes": [
+        "scene"
+      ],
+      "attributes": {},
+      "styles": {
+        "transformStyle": "preserve-3d"
+      },
+      "resourceAttributes": {},
+      "resourceStyles": {}
+    },
+    {
+      "index": 1,
+      "id": "synthetic/shape",
+      "parent": 0,
+      "sibling": 0,
+      "namespace": "http://www.w3.org/1999/xhtml",
+      "name": "div",
+      "classes": [
+        "shape"
+      ],
+      "attributes": {
+        "data-shape": "original"
+      },
+      "styles": {},
+      "resourceAttributes": {},
+      "resourceStyles": {}
+    },
+    {
+      "index": 2,
+      "id": "synthetic/leaf",
+      "parent": 1,
+      "sibling": 0,
+      "namespace": "http://www.w3.org/1999/xhtml",
+      "name": "u",
+      "classes": [
+        "leaf"
+      ],
+      "attributes": {
+        "aria-hidden": "true"
+      },
+      "styles": {
+        "height": "16px",
+        "transform": "matrix3d(1,0,0,0,0,1,0,0,0,0,1,0,8,8,0,1)",
+        "width": "16px"
+      },
+      "resourceAttributes": {},
+      "resourceStyles": {
+        "backgroundImage": {
+          "resource": "checker",
+          "syntax": "url"
+        }
+      }
+    }
+  ]
+}

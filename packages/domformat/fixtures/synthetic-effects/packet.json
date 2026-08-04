@@ -1,0 +1,97 @@
+{
+  "version": 0,
+  "arithmetic": "ieee754-f32-per-operation",
+  "frameCount": 3,
+  "biases": {
+    "continuous": [
+      0,
+      0,
+      -10
+    ],
+    "grab": [
+      0,
+      0,
+      10
+    ]
+  },
+  "particle": {
+    "damping": 0.5,
+    "gravityY": -1,
+    "sparkleFrameTable": [
+      0,
+      1,
+      0
+    ]
+  },
+  "spawnStream": {
+    "count": 3,
+    "tuples": [
+      [
+        3.5,
+        2,
+        4,
+        6
+      ],
+      [
+        2.5,
+        1,
+        2,
+        3
+      ],
+      [
+        3.25,
+        -1,
+        1,
+        2
+      ]
+    ]
+  },
+  "stars": [
+    {
+      "positions": [
+        10,
+        20,
+        30,
+        40,
+        50,
+        60,
+        70,
+        80,
+        90
+      ],
+      "transforms": [
+        "translate3d(10px, 20px, 30px)",
+        "translate3d(40px, 50px, 60px)",
+        "translate3d(70px, 80px, 90px)"
+      ],
+      "frameIndices": [
+        0,
+        1,
+        0
+      ],
+      "backgroundPositions": [
+        "0px 0px",
+        "-8px 0px"
+      ]
+    }
+  ],
+  "emitters": [
+    {
+      "mode": "grab",
+      "poolSize": 1,
+      "backgroundPositions": [
+        "0px 0px",
+        "-8px 0px"
+      ]
+    },
+    {
+      "mode": "follow-star",
+      "sourceStar": 0,
+      "poolSize": 1,
+      "backgroundPositions": [
+        "0px 0px",
+        "-8px 0px"
+      ]
+    }
+  ]
+}

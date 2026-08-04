@@ -1,0 +1,125 @@
+{
+  "fixture": {
+    "json": "positive.json",
+    "resources": [
+      "assets/independent-checker.png",
+      "independent.css"
+    ],
+    "byteLength": 14048,
+    "sha256": "46536f4c391bb55d8a54d748bfb121126a283cc9cb4cb5e9599aff2a139f505c",
+    "constructionPlanSha256": "f7097139292db43c0af3342e621ae1b21ae4b40385052248dbfcfbe5f98bd261",
+    "bindingPlanSha256": "f07f8f134918ff6d1d7bceb7c907453990a92dda6ef130a0ee543267c6ae930a"
+  },
+  "cases": [
+    {
+      "id": "valid",
+      "mutation": "none",
+      "expect": "valid"
+    },
+    {
+      "id": "gzip-transport",
+      "mutation": "gzip-transport",
+      "expect": "UNSUPPORTED_TRANSPORT"
+    },
+    {
+      "id": "malformed-utf8",
+      "mutation": "malformed-utf8",
+      "expect": "MALFORMED_UTF8"
+    },
+    {
+      "id": "malformed-json",
+      "mutation": "malformed-json",
+      "expect": "MALFORMED_JSON"
+    },
+    {
+      "id": "duplicate-key",
+      "mutation": "duplicate-key",
+      "expect": "DUPLICATE_NORMALIZED_KEY"
+    },
+    {
+      "id": "negative-zero",
+      "mutation": "negative-zero",
+      "expect": "INVALID_NUMBER"
+    },
+    {
+      "id": "unknown-top-level",
+      "mutation": "unknown-top-level",
+      "expect": "INVALID_DOCUMENT"
+    },
+    {
+      "id": "unsupported-format",
+      "mutation": "unsupported-format",
+      "expect": "UNSUPPORTED_FORMAT"
+    },
+    {
+      "id": "unsupported-profile",
+      "mutation": "unsupported-profile",
+      "expect": "UNSUPPORTED_PROFILE"
+    },
+    {
+      "id": "unknown-required-capability",
+      "mutation": "unknown-required-capability",
+      "expect": "UNSUPPORTED_REQUIRED_CAPABILITY"
+    },
+    {
+      "id": "invalid-initial-experience",
+      "mutation": "invalid-initial-experience",
+      "expect": "INVALID_META"
+    },
+    {
+      "id": "embedded-payload",
+      "mutation": "embedded-payload",
+      "expect": "INVALID_DOCUMENT"
+    },
+    {
+      "id": "embedded-storage",
+      "mutation": "embedded-storage",
+      "expect": "INVALID_RESOURCE"
+    },
+    {
+      "id": "unsafe-resource-path",
+      "mutation": "unsafe-resource-path",
+      "expect": "UNSAFE_RESOURCE_PATH"
+    },
+    {
+      "id": "duplicate-resource-path",
+      "mutation": "duplicate-resource-path",
+      "expect": "DUPLICATE_RESOURCE_PATH"
+    },
+    {
+      "id": "casefold-resource-path",
+      "mutation": "casefold-resource-path",
+      "expect": "DUPLICATE_RESOURCE_PATH"
+    },
+    {
+      "id": "resource-path-prefix",
+      "mutation": "resource-path-prefix",
+      "expect": "RESOURCE_PATH_COLLISION"
+    },
+    {
+      "id": "reserved-resource-path",
+      "mutation": "reserved-resource-path",
+      "expect": "UNSAFE_RESOURCE_PATH"
+    },
+    {
+      "id": "trailing-dot-resource-path",
+      "mutation": "trailing-dot-resource-path",
+      "expect": "UNSAFE_RESOURCE_PATH"
+    },
+    {
+      "id": "missing-aria-hidden",
+      "mutation": "missing-aria-hidden",
+      "expect": "ACCESSIBILITY_REQUIRED"
+    },
+    {
+      "id": "missing-resource",
+      "mutation": "missing-resource",
+      "expect": "MISSING_EXTERNAL_RESOURCE"
+    },
+    {
+      "id": "resource-digest",
+      "mutation": "resource-digest",
+      "expect": "RESOURCE_DIGEST_MISMATCH"
+    }
+  ]
+}

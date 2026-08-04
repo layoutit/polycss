@@ -121,6 +121,8 @@ importers:
         specifier: ^3.1.1
         version: 3.2.4(@types/debug@4.1.13)(@types/node@25.5.0)(happy-dom@20.8.9)
 
+  packages/domformat: {}
+
   packages/fonts:
     dependencies:
       '@layoutit/polycss-core':
@@ -269,6 +271,9 @@ importers:
       '@layoutit/polycss':
         specifier: workspace:^
         version: link:../packages/polycss
+      '@layoutit/polycss-domformat':
+        specifier: workspace:^
+        version: link:../packages/domformat
       '@layoutit/polycss-fonts':
         specifier: workspace:^
         version: link:../packages/fonts

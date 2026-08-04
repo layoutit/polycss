@@ -60,6 +60,13 @@ import {
 import { defaultZoomForModel } from "./helpers/smartDefaults";
 import { directionalFromOptions, ambientFromOptions } from "./helpers/lighting";
 import {
+  dedupeAnimationClips,
+  displayAnimationName,
+  firstSelectableAnimationValue,
+  hasAnimationValue,
+} from "./helpers/animationClips";
+import { responsiveZoomScaleForViewport } from "./helpers/responsivePresentation";
+import {
   useDroppedFiles,
   usePresetLoader,
   useScenePolygons,
@@ -76,7 +83,6 @@ import {
 import { useFpvHost } from "../fpv";
 import type { ObjParseOptions, GltfParseOptions, VoxParseOptions, StlParseOptions } from "@layoutit/polycss";
 
-type AnimationClip = NonNullable<LoadedModel["animation"]>["clips"][number];
 type MobileGalleryPanel = "models" | "controls" | null;
 
 function presetPickerItem(preset: PresetModel, local = false) {
@@ -166,32 +172,10 @@ const DEFAULT_PARSER: ParserOptionsState = {
 
 const LIGHT_HELPER_TILE = 50;
 const LIGHT_HELPER_SELECTOR = ".dn-light-helper";
-const RESPONSIVE_ZOOM_BREAKPOINT = 900;
-const RESPONSIVE_ZOOM_BOTTOM_RESERVE = 72;
-const RESPONSIVE_ZOOM_MIN_SCALE = 0.42;
 const RESPONSIVE_SHADOW_EXTEND_BASE = 3200;
 const RESPONSIVE_SHADOW_EXTEND_MIN = 2000;
 const RESPONSIVE_SHADOW_PREVIEW_EXTEND_BASE = 1800;
 const RESPONSIVE_SHADOW_PREVIEW_EXTEND_MIN = 800;
-
-function clamp(value: number, min: number, max: number): number {
-  if (!Number.isFinite(value)) return min;
-  return Math.min(Math.max(value, min), max);
-}
-
-function responsiveZoomScaleForViewport(width: number, height: number): number {
-  if (!Number.isFinite(width) || !Number.isFinite(height) || width <= 0 || height <= 0) {
-    return 1;
-  }
-  const effectiveHeight = Math.max(1, height - RESPONSIVE_ZOOM_BOTTOM_RESERVE);
-  const widthScale = width < RESPONSIVE_ZOOM_BREAKPOINT
-    ? width / RESPONSIVE_ZOOM_BREAKPOINT
-    : 1;
-  const heightScale = effectiveHeight < RESPONSIVE_ZOOM_BREAKPOINT
-    ? effectiveHeight / RESPONSIVE_ZOOM_BREAKPOINT
-    : 1;
-  return clamp(Math.min(widthScale, heightScale), RESPONSIVE_ZOOM_MIN_SCALE, 1);
-}
 
 function responsiveCappedShadowMaxExtend(
   value: number,
@@ -684,66 +668,6 @@ function compareInspectorColors(a: string, b: string): number {
     ak.value - bk.value ||
     ak.label.localeCompare(bk.label)
   );
-}
-
-function displayAnimationName(name: string): string {
-  const localName = (name.split("|").pop() ?? name).trim();
-  return localName
-    .replace(/^(Animal|Character|Fish|Human|Monster|Robot|Snake)[ _-]+/i, "")
-    .replace(/[_-]+/g, " ")
-    .replace(/\s+/g, " ")
-    .trim() || name;
-}
-
-function animationOptionKey(name: string): string {
-  return displayAnimationName(name).toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
-}
-
-function animationNameHasArmaturePrefix(name: string): boolean {
-  return name.includes("|");
-}
-
-function dedupeAnimationClips(clips: AnimationClip[]): AnimationClip[] {
-  const byName = new Map<string, AnimationClip>();
-  for (const clip of clips) {
-    const key = animationOptionKey(clip.name);
-    const existing = byName.get(key);
-    if (!existing || (animationNameHasArmaturePrefix(existing.name) && !animationNameHasArmaturePrefix(clip.name))) {
-      byName.set(key, clip);
-    }
-  }
-  return Array.from(byName.values());
-}
-
-function animationClipValue(clip: AnimationClip): string {
-  return String(clip.index);
-}
-
-function animationSearchText(name: string): string {
-  return `${name} ${displayAnimationName(name)}`
-    .replace(/([a-z])([A-Z])/g, "$1 $2")
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, " ")
-    .trim();
-}
-
-function isWalkingAnimationClip(clip: AnimationClip): boolean {
-  return /\bwalk(?:ing)?\b/.test(animationSearchText(clip.name));
-}
-
-function isIdleAnimationClip(clip: AnimationClip): boolean {
-  return /\bidle\b/.test(animationSearchText(clip.name));
-}
-
-function firstSelectableAnimationValue(model: LoadedModel): string {
-  const clips = dedupeAnimationClips(model.animation?.clips ?? []);
-  const preferred = clips.find(isWalkingAnimationClip) ?? clips.find((clip) => !isIdleAnimationClip(clip)) ?? clips[0];
-  return preferred ? animationClipValue(preferred) : "";
-}
-
-function hasAnimationValue(model: LoadedModel, value: string): boolean {
-  if (value === "") return true;
-  return dedupeAnimationClips(model.animation?.clips ?? []).some((clip) => animationClipValue(clip) === value);
 }
 
 function resolveInitialPreset(): PresetModel {
